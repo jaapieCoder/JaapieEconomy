@@ -1,0 +1,48 @@
+_id: spc_94a3c76d269546809dcac97a2896b1fc
+contentType: yaml
+contents: |-
+  openapi: 3.0.0
+  info:
+    title: Jaapie Economy
+    description: "Jaap's economy system"
+    version: 1.0.0
+    contact:
+      name: API Support
+      email: "jaapelst@gmail.com"
+      
+  servers: 
+   - url: "https://eco.jaapdevelopment.com"
+     description: "main server for economy"
+
+  paths:
+    /ping:
+      summary: ping
+      get:
+        security:
+          - ApiKeyAuth: [read]
+        description: Ping the server
+        responses:
+          '200':
+            description: "Nothing"
+            
+    /api/getCoins:
+      get:
+        security:
+          - ApiKeyAuth: [read]
+        description: Get coins of a user
+            
+  components:
+    securitySchemes:
+      ApiKeyAuth:
+        type: apiKey
+        in: header
+        name: X-API-Key
+        
+   
+  security:
+    - ApiKeyAuth: []
+created: 1599085444391
+fileName: Insomnia Designer
+modified: 1599085598254
+parentId: wrk_398611027d4d4102a3a47778ddc97dc2
+type: ApiSpec
